@@ -10,9 +10,11 @@ class IntBuilder extends BaseBuilder {
         to = Math.trunc(to);
         return Math.floor(Math.random() * (to - from +1 )) + from;
     }
+
     mod(num){
         this.init = this.init % num;
         return this;
     }
+
 }
 export default IntBuilder;
