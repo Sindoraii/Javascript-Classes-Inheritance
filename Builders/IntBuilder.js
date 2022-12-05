@@ -4,6 +4,7 @@ class IntBuilder extends BaseBuilder {
     constructor(init = 0) {
         super(init);
     }
+
     static random(from, to) {
         from = Math.trunc(from);
         to = Math.trunc(to);

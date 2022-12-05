@@ -9,7 +9,7 @@ function StringBuilder(str = "") {
     }
 
     this.remove = function (sub) {
-        let chars = Array.from(this.init);
+        const chars = Array.from(this.init);
 
         while(this.init.indexOf(sub) !== -1) {
             chars.splice(this.init.indexOf(sub),sub.length)
