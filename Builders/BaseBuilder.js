@@ -4,18 +4,18 @@ class BaseBuilder {
     }
 
     plus(...args) {
-        this.init =this.init + args.reduce((prev,current) => prev + current)
+        this.init = this.init + args.reduce((prev,current) => prev + current)
         return this;
     }
 
     minus(...args) {
         if (typeof this.init === 'number') {
-            for (let i = 0; i < args.length; i++) {
-                this.init -= args[i];
-            }
+            this.init = args.reduce((prev,current) => {
+               return prev - current
+            },this.init);
             return this;
-        }else if (typeof this.init === "string") {
-            this.init =  this.init.slice(0, -args[0]);
+        } else if (typeof this.init === "string") {
+            this.init = this.init.slice(0, -args[0]);
             return this;
         }
     }
@@ -35,7 +35,7 @@ class BaseBuilder {
             this.init = Math.trunc(this.init / num);
             return this;
         } else if (typeof  this.init === 'string') {
-            this.init =  this.init.slice(0, Math.trunc( this.init.length / num ));
+            this.init = this.init.slice(0, Math.trunc( this.init.length / num ));
             return this;
         }
      }
